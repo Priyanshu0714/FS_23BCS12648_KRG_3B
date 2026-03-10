@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing component2 1`] = `
+<div>
+  <div>
+    <h2>
+      Hello, 
+      priyanshu
+    </h2>
+    <h2>
+      The current time is 
+      10:09
+    </h2>
+    <div>
+      <img
+        alt="clock image"
+        src="./clock.png"
+      />
+    </div>
+    <p>
+      welcome to the page
+    </p>
+  </div>
+</div>
+`;
