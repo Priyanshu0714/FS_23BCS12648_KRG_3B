@@ -51,4 +51,6 @@ public class PatientController {
     ) {
         return patientService.getPatientsByCursor(cursor, size);
     }
+
+
 }
