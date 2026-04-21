@@ -1,0 +1,277 @@
+:root {
+  /* Professional Light Theme Colors */
+  --bg-color: #f8fafc;          /* Soft light gray background */
+  --surface-color-1: #ffffff;   /* Pure white for panels/cards */
+  --surface-color-2: #f1f5f9;   /* Very light gray for hovers/badges */
+  --text-primary: #0f172a;      /* Dark slate for high contrast readability */
+  --text-secondary: #64748b;    /* Muted gray for labels and meta text */
+  --accent-primary: #2563eb;    /* Trustworthy corporate blue */
+  --accent-secondary: #1d4ed8;  /* Slightly darker blue for active states */
+  --success: #059669;           /* Professional green */
+  --success-bg: #ecfdf5;        /* Very pale green for card backgrounds */
+  --danger: #dc2626;            /* Professional red */
+  --danger-bg: #fef2f2;         /* Very pale red for card backgrounds */
+  --border-color: #e2e8f0;      /* Clean, subtle borders */
+  --border-radius: 12px;        /* Slightly sharper corners for structure */
+  --transition: all 0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Replaced Glassmorphism with Clean Solid Panels */
+.glass-panel {
+  background: var(--surface-color-1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary); /* Removed gradient for a serious look */
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 400px 1fr;
+  }
+}
+
+.summary-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simplified Summary Cards */
+.summary-card.total-balance {
+  background: var(--accent-primary);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.summary-card.income {
+  background: var(--success-bg);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+.summary-card.income .amount { color: var(--success); }
+
+.summary-card.expense {
+  background: var(--danger-bg);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+.summary-card.expense .amount { color: var(--danger); }
+
+.summary-card .label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.summary-card .amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--surface-color-1);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); /* Clean focus ring */
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-secondary);
+}
+
+/* Transactions List */
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.transaction-item:hover {
+  background-color: var(--surface-color-2); /* Very subtle gray hover */
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-info .desc {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.transaction-info .meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.category-badge {
+  background-color: var(--surface-color-2);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.transaction-amount {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.transaction-amount.income {
+  color: var(--success);
+}
+
+.transaction-amount.expense {
+  color: var(--danger);
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.transaction-item:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  color: var(--danger);
+  background-color: var(--danger-bg);
+  border-radius: 6px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
